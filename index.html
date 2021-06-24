@@ -20,7 +20,6 @@
     </div>
   </div>
 
-
   <div class="navbar">
     <a class="active" href="">View 1</a>
     <a href="">View 2</a>
@@ -35,8 +34,8 @@
     }
 
     /* Add a black background color to the top navigation */
-    .topnav, .navbar {
-      background-color: white;
+    .topnav,
+    .navbar {
       overflow: hidden;
       color: black;
     }
@@ -48,40 +47,52 @@
       box-shadow: 0px 1px 1px rgb(184, 181, 181);
     }
 
+    /* Place the navbar at the bottom of the page, and make it stick */
+    .navbar {
+      background-color: rgb(247, 247, 247);
+      position: fixed;
+      bottom: 0;
+      width: 87%;
+      box-shadow: 0px -1px 1px rgb(184, 181, 181);
+    }
+
     /* Style the links inside the navigation bar */
-    .topnav a, .navbar a {
+    .topnav a,
+    .navbar a {
       float: left;
       color: black;
       text-align: center;
-      padding: 5px 5px;
+      padding: 7px 7px;
       text-decoration: none;
       font-size: 12px;
     }
 
     /* Change the color of links on hover */
-    .topnav a:hover, .navbar a:hover {
+    .topnav a:hover,
+    .navbar a:hover {
       background-color: #ddd;
       color: black;
     }
 
     /* Add a color to the active/current link */
-    .topnav a.active, .navbar a.active {
+    .topnav a.active {
       background-color: white;
       color: black;
+    }
+
+    .navbar a.active {
+      background-color: white;
+      color: black;
+      font-weight: bold;
     }
 
     .topnav-right {
       float: right;
     }
-
-    /* Place the navbar at the bottom of the page, and make it stick */
-    .navbar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      box-shadow: 0px -1px 1px rgb(184, 181, 181);
-    }
   </style>
+
+  <div id="3D_pane" style="position: absolute; bottom: 0%; height: 100%; left: 0%; width: 87%">
+  </div>
 
   <!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
   <div id="indicator_pane" style="position: absolute; bottom: 0%; height: 100%; right: 0%; width: 13%">
