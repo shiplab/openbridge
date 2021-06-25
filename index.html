@@ -395,8 +395,8 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			background-color: #00509e;
-			color: #fff;
+			background-color: white;
+			color: black;
 			font-family: Helvetica;
 			z-index: 105;
 		}
@@ -483,7 +483,7 @@
 	<div id="loader-wrapper">
 		<div class="loader loader-white loader-1"></div>
 		<div>
-			<h1 style="font-style: italic">Loading...</h1>
+			<h1 style="font-style: italic; font-weight: normal">Loading...</h1>
 		</div>
 	</div>
 
@@ -556,10 +556,10 @@
 
 		//Globals
 		var renderer, camera, controls, thirdPersonCamera, capitanCamera_1, capitanCamera_2, fixedCamera, orbitalCamera, gui;
-		var scene, zUpCont, playback, bodies, ocean;
-		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, rudderModel, fuelCons;
+		var scene, zUpCont, playback, ocean;
+		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
-		var scale, modelStyle, remainCheck, totalFuel;
+		var controls, modelStyle, remainCheck, totalFuel;
 		var speedText, angleText, rotationText, consumptionText;
 		var clock, time, checkPoint;
 		var canvas, c, orbitController, lineChart, lineChart2;
@@ -877,7 +877,7 @@
 			window.addEventListener("resize", onResize, false);
 			onResize();
 
-			zUpCont.add(new THREE.AxesHelper(1000));
+			//zUpCont.add(new THREE.AxesHelper(1000));
 			zUpCont.add(new THREE.HemisphereLight(0xccccff, 0x666688, 1));
 
 			ocean = new Ocean({
@@ -1250,16 +1250,8 @@
 				viewCons: false
 			};
 			gui = new dat.GUI();
-			scale = gui.addFolder("View Style");
-			scale.add(
-				{
-					"Click to read paper": function () {
-						window.open("https://observablehq.com/@ferrari212/simulation-model-a-brief-method");
-					}
-				},
-				"Click to read paper"
-			);
-			scale
+			controls = gui.addFolder("View Style");
+			controls
 				.add(viewer, "view", {
 					TP: "TP",
 					Bridge_1: "Bridge_1",
@@ -1268,25 +1260,25 @@
 					Orbital: "Orbital"
 				})
 				.name("View");
-			scale
+			controls
 				.add(viewer, 'totalFuel')
 				.name("Cons. Fuel (g)").listen();
-			scale
+			controls
 				.add(viewer, "checkPoint")
 				.name("Remain").listen();
-			scale
+			controls
 				.add(viewer, "viewLoc")
 				.onChange(function (newValue) {
 					document.getElementById("graphic1").style.visibility = newValue ? "visible" : "hidden"
 				})
 				.name("View Loc.").listen();
-			scale
+			controls
 				.add(viewer, "viewCons")
 				.onChange(function (newValue) {
 					document.getElementById("graphic2").style.visibility = newValue ? "visible" : "hidden"
 				})
 				.name("View Power").listen();
-			scale.open();
+			controls.open();
 
 			// End GUI setup
 
@@ -1353,7 +1345,7 @@
 
 				consumptionText.innerText = (rotationStates.cons).toFixed(1);
 				totalFuel += manoeuvringMovement.dt * rotationStates.cons / 3.6
-				scale.__controllers[1].object.totalFuel = totalFuel.toFixed()
+				controls.__controllers[1].object.totalFuel = totalFuel.toFixed()
 
 				var clients = grid.FindNearby(position, { w: 0.5, h: 0.5 });
 				for (let item of clients) {
@@ -1372,7 +1364,7 @@
 					d3.selectAll("#" + NAME).style("fill", "red");
 
 					remainCheck -= 1;
-					scale.__controllers[1].object.checkPoint = remainCheck;
+					controls.__controllers[1].object.checkPoint = remainCheck;
 
 					grid.RemoveClient(item);
 
