@@ -61,16 +61,15 @@
     </div> -->
 	</div>
 
-	<div class="navbar">
-		<a class="active" href="javascript:toggleCam('Orbital');"
+	<div class="navbar" id="viewPane">
+		<a href="javascript:void(0);" class="view active"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Orbital</a>
-		<a href="javascript:toggleCam('Fixed');"
+		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Fixed</a>
-		<a href="javascript:toggleCam('TP');" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third
-			person</a>
-		<a href="javascript:toggleCam('Bridge_1');"
+		<a href="javascript:void(0);" class="view" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third person</a>
+		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 1</a>
-		<a href="javascript:toggleCam('Bridge_2');"
+		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 2</a>
 	</div>
 
@@ -1288,8 +1287,28 @@
 
 		camMode = "Orbital";
 
-		function toggleCam(mode) {
-			camMode = mode;
+		// Loop through the buttons and add the active class to the current/clicked button
+		var header = document.getElementById("viewPane");
+		var viewModes = header.getElementsByClassName("view");
+		for (var i = 0; i < viewModes.length; i++) {
+			viewModes[i].addEventListener("click", function () {
+				var current = document.getElementsByClassName("view active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+				switch (this.innerHTML) {
+					case "Third person":
+						camMode = "TP";
+						break;
+					case "Bridge 1":
+						camMode = "Bridge_1";
+						break;
+					case "Bridge 2":
+						camMode = "Bridge_2";
+						break;
+					default:
+						camMode = this.innerHTML;
+				}
+			});
 		}
 
 		function animate(millitime) {
