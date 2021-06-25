@@ -52,9 +52,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/openbridge-css@0.2.1/dist/css/openbridge.css">
 </head>
 
-
 <body>
-
 	<div class="topnav">
 		<a class="active" href=""><img width="12px" height="12px" src="icons/menu.svg" alt="Menu" /></a>
 		<a href="">Ship simulator</a>
@@ -64,9 +62,48 @@
 	</div>
 
 	<div class="navbar">
-		<a class="active" href="" style="width: 33%; border-right: thin solid rgb(184, 181, 181)">View 1</a>
-		<a href="" style="width: 34%; border-right: thin solid rgb(184, 181, 181)">View 2</a>
-		<a href="" style="width: 33%; border-right: thin solid rgb(184, 181, 181)">View 3</a>
+		<a class="active" href="javascript:toggleCam('Orbital');"
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Orbital</a>
+		<a href="javascript:toggleCam('Fixed');"
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Fixed</a>
+		<a href="javascript:toggleCam('TP');" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third
+			person</a>
+		<a href="javascript:toggleCam('Bridge_1');"
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 1</a>
+		<a href="javascript:toggleCam('Bridge_2');"
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 2</a>
+	</div>
+
+	<div id="3D_pane"
+		style="position: absolute; height: calc(100% - 56px); top:28px; bottom:28px; left: 0%; width: 87%">
+	</div>
+
+	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
+	<div id="indicator_pane" style="position: absolute; z-index: -1; bottom: 0%; height: 100%; right: 0%; width: 13%">
+
+		<div style="position: relative; top: 0%; height: 25%;">
+			<ob-bar-horizontal-large value="-75" range="100"
+				style="position: relative; top: 50%; transform: translateY(-50%)">
+			</ob-bar-horizontal-large>
+		</div>
+
+		<div style="position: relative; top: 0%; height: 25%;">
+			<ob-hdg-medium heading="60" courseoverground="55" northup=""
+				style="position: relative; top: 50%; transform: translateY(-50%)">
+			</ob-hdg-medium>
+		</div>
+
+		<div style="position: relative; top: 0%; height: 25%;">
+			<ob-rot-circle-medium rateofturn="36" style="position: relative; top: 50%; transform: translateY(-50%);">
+			</ob-rot-circle-medium>
+		</div>
+
+		<div style="position: relative; top: 0%; height: 25%;">
+			<ob-roll-medium roll="2" lowerroll="-2" upperroll="3" scale="5"
+				style="position: relative; top: 50%; transform: translateY(-50%);">
+			</ob-roll-medium>
+		</div>
+
 	</div>
 
 	<style>
@@ -132,41 +169,7 @@
 		.topnav-right {
 			float: right;
 		}
-	</style>
 
-	<div id="3D_pane"
-		style="position: absolute; height: calc(100% - 56px); top:28px; bottom:28px; left: 0%; width: 87%">
-	</div>
-
-	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
-	<div id="indicator_pane" style="position: absolute; z-index: -1; bottom: 0%; height: 100%; right: 0%; width: 13%">
-
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-bar-horizontal-large value="-125" range="100"
-				style="position: relative; top: 50%; transform: translateY(-50%)">
-			</ob-bar-horizontal-large>
-		</div>
-
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-hdg-medium heading="60" courseoverground="55" northup=""
-				style="position: relative; top: 50%; transform: translateY(-50%)">
-			</ob-hdg-medium>
-		</div>
-
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-rot-circle-medium rateofturn="36" style="position: relative; top: 50%; transform: translateY(-50%);">
-			</ob-rot-circle-medium>
-		</div>
-
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-roll-medium roll="2" lowerroll="-2" upperroll="3" scale="5"
-				style="position: relative; top: 50%; transform: translateY(-50%);">
-			</ob-roll-medium>
-		</div>
-
-	</div>
-
-	<style>
 		table {
 			margin-top: 15px;
 			margin-bottom: 10px;
@@ -191,8 +194,8 @@
 
 		#code-button {
 			position: fixed;
-			bottom: 16px;
-			right: 16px;
+			bottom: 54px;
+			right: calc(13% + 16px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -207,8 +210,8 @@
 
 		#math-button {
 			position: fixed;
-			bottom: 16px;
-			right: 96px;
+			bottom: 54px;
+			right: calc(13% + 96px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -223,8 +226,8 @@
 
 		#question-button {
 			position: fixed;
-			bottom: 16px;
-			right: 176px;
+			bottom: 54px;
+			right: calc(13% + 176px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -428,7 +431,7 @@
 		}
 
 		.loader-white {
-			background-color: #fff;
+			background-color: rgb(184, 181, 181);
 		}
 
 		.loader-1 {
@@ -465,7 +468,7 @@
 		/* End Style required for D3.js */
 	</style>
 
-	<div id="info">
+	<div id="info" style="top:28px">
 		<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br />
 		Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student Ship
 		Design
@@ -561,7 +564,7 @@
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
 		var speedText, angleText, rotationText, consumptionText;
-		var clock, time, checkPoint;
+		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
 		function onOrbitControllerMove() {
@@ -1243,23 +1246,16 @@
 
 			//GUI setup
 			viewer = {
-				view: "Orbital",
 				totalFuel: "0",
 				checkPoint: "3",
 				viewLoc: false,
 				viewCons: false
 			};
 			gui = new dat.GUI();
+			gui.domElement.style.position = "absolute";
+			gui.domElement.style.top = "28px";
+			gui.domElement.style.right = "12%";
 			controls = gui.addFolder("View Style");
-			controls
-				.add(viewer, "view", {
-					TP: "TP",
-					Bridge_1: "Bridge_1",
-					Bridge_2: "Bridge_2",
-					Fixed: "Fixed",
-					Orbital: "Orbital"
-				})
-				.name("View");
 			controls
 				.add(viewer, 'totalFuel')
 				.name("Cons. Fuel (g)").listen();
@@ -1289,6 +1285,12 @@
 
 		}
 		)();
+
+		camMode = "Orbital";
+
+		function toggleCam(mode) {
+			camMode = mode;
+		}
 
 		function animate(millitime) {
 
@@ -1339,7 +1341,7 @@
 
 				});
 
-				camera.toggle[viewer.view](manoeuvringMovement.dt);
+				camera.toggle[camMode](manoeuvringMovement.dt);
 
 				speedText.innerText = (manoeuvringMovement.states.V.u * 1.943844).toFixed(1);
 
