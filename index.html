@@ -48,8 +48,9 @@
 	<script src="libs/FreeBody.js"></script>
 	<script src="libs/numeric-1.2.6.min.js"></script>
 
-	<script src="https://unpkg.com/openbridge-web-components@0.2.1"></script>
-	<link rel="stylesheet" href="https://unpkg.com/openbridge-css@0.2.1/dist/css/openbridge.css">
+	<script src="./Storybook_files/runtime_main.8fef4c25.iframe.bundle.js"></script>
+	<script src="./Storybook_files/vendors_main.9d92a812.iframe.bundle.js"></script>
+	<script src="./Storybook_files/main.13ba223b.iframe.bundle.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,8 @@
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Orbital</a>
 		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Fixed</a>
-		<a href="javascript:void(0);" class="view" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third person</a>
+		<a href="javascript:void(0);" class="view" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third
+			person</a>
 		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 1</a>
 		<a href="javascript:void(0);" class="view"
@@ -80,29 +82,30 @@
 	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
 	<div id="indicator_pane" style="position: absolute; z-index: -1; bottom: 0%; height: 100%; right: 0%; width: 13%">
 
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-bar-horizontal-large value="-75" range="100"
-				style="position: relative; top: 50%; transform: translateY(-50%)">
-			</ob-bar-horizontal-large>
-		</div>
-
-		<div style="position: relative; top: 0%; height: 25%;">
+		<div style="position: relative; top: 0%; height: 35%;">
 			<ob-hdg-medium heading="60" courseoverground="55" northup=""
 				style="position: relative; top: 50%; transform: translateY(-50%)">
 			</ob-hdg-medium>
 		</div>
 
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-rot-circle-medium rateofturn="36" style="position: relative; top: 50%; transform: translateY(-50%);">
-			</ob-rot-circle-medium>
-		</div>
+		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 12;">
+			<h4>Navigation</h4>
+			<p>Speed: <span id="speed-text">0.00</span> knots.<br>
+				Acceleration: .<br>
+				Heading: <span>0.00</span> knots.<br>
 
-		<div style="position: relative; top: 0%; height: 25%;">
-			<ob-roll-medium roll="2" lowerroll="-2" upperroll="3" scale="5"
-				style="position: relative; top: 50%; transform: translateY(-50%);">
-			</ob-roll-medium>
-		</div>
+			<h4>Coordinates</h4>
 
+			<h4>Propeller</h4>
+			<p>Angle: <span id="angle-text">0.00</span>&deg;.<br>
+				Rotation: <span id="rotation-text">0.00</span> RPM.<br>
+				Torque: <span id="">0.00</span><br>
+				Thrust: <span id="">0.00</span></p>
+
+			<h4>Engine</h4>
+			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
+				MCR %: <span>0.00</span>.<br></p>
+		</div>
 	</div>
 
 	<style>
@@ -191,42 +194,10 @@
 			background-color: #000;
 		}
 
-		#code-button {
-			position: fixed;
-			bottom: 54px;
-			right: calc(13% + 16px);
-
-			padding: 12px;
-			border-radius: 50%;
-			margin-bottom: 0px;
-
-			background-color: #fff;
-			opacity: 0.9;
-			z-index: 110;
-
-			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-		}
-
-		#math-button {
-			position: fixed;
-			bottom: 54px;
-			right: calc(13% + 96px);
-
-			padding: 12px;
-			border-radius: 50%;
-			margin-bottom: 0px;
-
-			background-color: #fff;
-			opacity: 0.9;
-			z-index: 110;
-
-			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-		}
-
 		#question-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(13% + 176px);
+			right: calc(13% + 16px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -304,14 +275,8 @@
 			opacity: 0.7;
 		}
 
-		#panel-number {
-			position: fixed;
-			top: 16px;
-			left: 16px;
-
-			text-align: center;
-			background-color: #fff;
-			z-index: 100;
+		h4 {
+			text-align: center
 		}
 
 		/* ***************************************************************************************/
@@ -469,17 +434,25 @@
 
 	<div id="info" style="top:28px">
 		<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br />
-		Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student Ship
+		Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student
+		Ship
 		Design
 		<br>
-		Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank" rel="noopener">Henrique M.
+		Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank" rel="noopener">Henrique
+			M.
 			Gaspar</a>
 		<br>
 		CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a>
 		<br>
 		Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
 			rel="noopener">Trondheim municipality</a>
-	</div> -->
+		<br>
+		View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank" rel="noopener">GitHub</a>
+		<br>
+		View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
+			target="_blank" rel="noopener">ObservableHQ</a>
+	</div>
+	</a>
 
 	<!-- This is the loader wraper, unncoment this to see the loading page -->
 	<div id="loader-wrapper">
@@ -493,17 +466,6 @@
 
 	<a id="question-button">
 		<img src="icons\help-black-24dp.svg" />
-	</a>
-
-	<a id="math-button" target="_blank" href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
-		title="View mathematical model" style="">
-		<img src="icons\superscript-black-24dp.svg" />
-	</a>
-
-	<a id="code-button" target="_blank"
-		href="https://github.com/ferrari212/vesseljs/blob/master/examples/manoeuvring.html"
-		title="View source code for animation / cloth on GitHub" style="">
-		<img src="icons\code-24px.svg" />
 	</a>
 
 	<div id="graphic1">
@@ -527,31 +489,6 @@
 			</li>
 		</ul>
 	</div>
-
-	<table id="panel-number" class="unselectable">
-		<tr valign="top">
-			<td>
-				<p style="font-size: 10px">FWD. Speed</p>
-				<h2 id="speed-text">0.0</h2>
-				<p style="font-size: 10px">knots</p>
-			</td>
-			<td>
-				<p style="font-size: 10px">Prop. Angle</p>
-				<h2 id="angle-text">0.0</h2>
-				<p style="font-size: 10px">degree</p>
-			</td>
-			<td>
-				<p style="font-size: 10px">Prop. Rotation</p>
-				<h2 id="rotation-text">0</h2>
-				<p style="font-size: 10px">RPM</p>
-			</td>
-			<td>
-				<p style="font-size: 10px">Cons. Rate</p>
-				<h2 id="consumption-text">0</h2>
-				<p style="font-size: 10px">kg/h</p>
-			</td>
-		</tr>
-	</table>
 
 	<script>
 		"use strict"
@@ -1393,7 +1330,7 @@
 
 						if (window.confirm("Congratulations! You got all checkpoints, replay? ")) {
 
-							window.location.replace("https://shiplab.github.io/vesseljs/examples/manoeuvring.html");
+							window.location.replace("https://shiplab.github.io/openbridge/");
 
 						}
 
