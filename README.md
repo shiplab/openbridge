@@ -7,4 +7,3 @@ Combining Vessel.js with OpenBridge (AHO).
 * Prepare Menu.
 * Migrate About to Menu.
 * Organize code base.
-* Fix third person bug.

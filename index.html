@@ -48,10 +48,6 @@
 
 	<script src="libs/FreeBody.js"></script>
 	<script src="libs/numeric-1.2.6.min.js"></script>
-
-	<script src="libs/runtime_main.8fef4c25.iframe.bundle.js"></script>
-	<script src="libs/vendors_main.9d92a812.iframe.bundle.js"></script>
-	<script src="libs/main.13ba223b.iframe.bundle.js"></script>
 </head>
 
 <body>
@@ -68,7 +64,8 @@
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Orbital</a>
 		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Fixed</a>
-		<a href="javascript:void(0);" class="view" style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third_person</a>
+		<a href="javascript:void(0);" class="view"
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third_person</a>
 		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 1</a>
 		<a href="javascript:void(0);" class="view"
@@ -83,7 +80,7 @@
 	<div id="indicator_pane" style="position: absolute; z-index: -1; bottom: 0%; height: 100%; right: 0%; width: 13%">
 
 		<div style="position: relative; top: 0%; height: 35%;">
-			<ob-hdg-medium heading="60" courseoverground="55" northup=""
+			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
 				style="position: relative; top: 50%; transform: translateY(-50%)">
 			</ob-hdg-medium>
 		</div>
@@ -91,8 +88,7 @@
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 12;">
 			<h4>Navigation</h4>
 			<p>Speed: <span id="speed-text">0.00</span> knots.<br>
-				Acceleration: .<br>
-				Heading: <span>0.00</span> knots.<br>
+				Acceleration: .<br></p>
 
 			<h4>Coordinates</h4>
 
@@ -499,7 +495,7 @@
 		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
-		var speedText, angleText, rotationText, consumptionText;
+		var headInd, speedText, angleText, rotationText, consumptionText;
 		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
@@ -752,6 +748,7 @@
 			document.body.style.overflow = "hidden";
 			var container = document.getElementById("3D_pane");
 			//container.id = "SimulationWindow";
+			headInd = document.getElementById("headInd");
 			speedText = document.getElementById("speed-text");
 			angleText = document.getElementById("angle-text");
 			rotationText = document.getElementById("rotation-text");
@@ -1299,6 +1296,7 @@
 
 				camera.toggle[camMode](manoeuvringMovement.dt);
 
+				headInd.heading = - shipGLTF.rotation.y * 180 / Math.PI;
 				speedText.innerText = (manoeuvringMovement.states.V.u * 1.943844).toFixed(1);
 
 				consumptionText.innerText = (rotationStates.cons).toFixed(1);
@@ -1361,6 +1359,10 @@
 		}
 
 	</script>
+
+	<script src="libs/runtime_main.8fef4c25.iframe.bundle.js"></script>
+	<script src="libs/vendors_main.9d92a812.iframe.bundle.js"></script>
+	<script src="libs/main.13ba223b.iframe.bundle.js"></script>
 </body>
 
 </html>
