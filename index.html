@@ -79,16 +79,25 @@
 	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
 	<div id="indicator_pane" style="position: absolute; z-index: -1; bottom: 0%; height: 100%; right: 0%; width: 13%">
 
-		<div style="position: relative; top: 0%; height: 35%;">
+		<div style="position: relative; top: 0%; height: 30%;">
 			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
 				style="position: relative; top: 50%; transform: translateY(-50%)">
 			</ob-hdg-medium>
 		</div>
+		<div style="position: relative; top: 0%; height: 30%;">
+			<ob-speedometer-medium id="speedometer" value="5">
+			</ob-speedometer-medium>
+		</div>
+
+
 
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
 			<h4>Navigation</h4>
 			<p>FWD Speed: <span id="speed-text">0.00</span> knots.<br>
 				Resistance: <span id="resist-text">0.00</span> kN.<br></p>
+
+
+
 
 			<h4>Position Coord.</h4>
 			<p>X: <span id="posx-text">0.00</span> m.<br>
@@ -499,7 +508,7 @@
 		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
-		var headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
+		var speedometer, headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
 		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
@@ -753,6 +762,7 @@
 			var container = document.getElementById("3D_pane");
 			//container.id = "SimulationWindow";
 			headInd = document.getElementById("headInd");
+			speedometer = document.getElementById("speedometer");
 			speedText = document.getElementById("speed-text");
 			resistText = document.getElementById("resist-text");
 			angleText = document.getElementById("angle-text");
@@ -1300,6 +1310,7 @@
 
 				headInd.heading = - shipGLTF.rotation.y * 180 / Math.PI;
 				speedText.innerText = (manoeuvringMovement.states.V.u * 1.943844).toFixed(1);
+				speedometer.value = speedText.innerText;
 				resistText.innerText = manoeuvring.getRes(manoeuvringMovement.states.V.u).toFixed(2);
 				posXText.innerText = (shipGLTF.position.x).toFixed(2);
 				posYText.innerText = (shipGLTF.position.y).toFixed(2);
