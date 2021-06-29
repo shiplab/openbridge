@@ -87,20 +87,20 @@
 
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 12;">
 			<h4>Navigation</h4>
-			<p>Speed: <span id="speed-text">0.00</span> knots.<br>
-				Acceleration: .<br></p>
+			<p>FWD Speed: <span id="speed-text">0.00</span> knots.<br>
+				Resistance: <span id="resist-text">0.00</span> kN.<br></p>
 
-			<h4>Coordinates</h4>
+			<h4>Position Coord.</h4>
+			<p>X: <span id="posx-text">0.00</span> m.<br>
+				Y: <span id="posy-text">0.00</span> m.<br></p>
 
 			<h4>Propeller</h4>
 			<p>Angle: <span id="angle-text">0.00</span>&deg;.<br>
-				Rotation: <span id="rotation-text">0.00</span> RPM.<br>
-				Torque: <span id="">0.00</span><br>
-				Thrust: <span id="">0.00</span></p>
+				Rotation: <span id="rotation-text">0.00</span> RPM.<br></p>
 
 			<h4>Engine</h4>
 			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
-				MCR %: <span>0.00</span>.<br></p>
+				Cont. Rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
 		</div>
 	</div>
 
@@ -495,7 +495,7 @@
 		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
-		var headInd, speedText, angleText, rotationText, consumptionText;
+		var headInd, speedText, resistText, angleText, rotationText, consumptionText, posXText, posYText, mcrText;
 		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
@@ -750,9 +750,13 @@
 			//container.id = "SimulationWindow";
 			headInd = document.getElementById("headInd");
 			speedText = document.getElementById("speed-text");
+			resistText = document.getElementById("resist-text");
 			angleText = document.getElementById("angle-text");
 			rotationText = document.getElementById("rotation-text");
 			consumptionText = document.getElementById("consumption-text");
+			posXText = document.getElementById("posx-text");
+			posYText = document.getElementById("posy-text");
+			mcrText = document.getElementById("mcr-text");
 
 			// Object.assign( container.style, {
 			// 	position: "absolute",
@@ -1298,8 +1302,12 @@
 
 				headInd.heading = - shipGLTF.rotation.y * 180 / Math.PI;
 				speedText.innerText = (manoeuvringMovement.states.V.u * 1.943844).toFixed(1);
+				resistText.innerText = manoeuvring.getRes(manoeuvringMovement.states.V.u).toFixed(2);
+				posXText.innerText = (shipGLTF.position.x).toFixed(2);
+				posYText.innerText = (shipGLTF.position.y).toFixed(2);
 
 				consumptionText.innerText = (rotationStates.cons).toFixed(1);
+				mcrText.innerText = (100 * manoeuvringMovement.states.load).toFixed(1);
 				totalFuel += manoeuvringMovement.dt * rotationStates.cons / 3.6
 				controls.__controllers[1].object.totalFuel = totalFuel.toFixed()
 
