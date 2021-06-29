@@ -84,12 +84,14 @@
 				style="position: relative; top: 50%; transform: translateY(-50%)">
 			</ob-hdg-medium>
 		</div>
-		<div style="position: relative; top: 0%; height: 30%;">
+		<div style="position: relative; top: 0%; height: 20%;">
 			<ob-speedometer-medium id="speedometer" value="5">
 			</ob-speedometer-medium>
 		</div>
-
-
+		<div style="position: relative; top: 0%; height: 25%;">
+			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60" targetAngle="88" value="40">
+			</ob-azimuth-medium>
+		</div>
 
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
 			<h4>Navigation</h4>
@@ -508,7 +510,7 @@
 		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
-		var speedometer, headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
+		var azimuth, speedometer, headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
 		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
@@ -547,12 +549,10 @@
 
 					manoeuvringMovement.states.rudderAngle += 0.08;
 					angleText.innerText = (manoeuvringMovement.states.rudderAngle % 360).toFixed(1);
-
 				} else {
 
 					manoeuvringMovement.states.rudderAngle -= 0.08;
 					angleText.innerText = (manoeuvringMovement.states.rudderAngle % 360).toFixed(1);
-
 				}
 
 			}
@@ -762,6 +762,7 @@
 			var container = document.getElementById("3D_pane");
 			//container.id = "SimulationWindow";
 			headInd = document.getElementById("headInd");
+			azimuth = document.getElementById("azimuth");
 			speedometer = document.getElementById("speedometer");
 			speedText = document.getElementById("speed-text");
 			resistText = document.getElementById("resist-text");
@@ -1317,6 +1318,10 @@
 
 				consumptionText.innerText = (rotationStates.cons).toFixed(1);
 				mcrText.innerText = (100 * manoeuvringMovement.states.load).toFixed(1);
+				azimuth.value = mcrText.innerText;
+				azimuth.target = mcrText.innerText;
+				azimuth.angle = parseFloat(angleText.innerText);
+				azimuth.targetAngle = parseFloat(angleText.innerText);
 				totalFuel += manoeuvringMovement.dt * rotationStates.cons / 3.6;
 				constotalText.innerText = totalFuel.toFixed();
 
