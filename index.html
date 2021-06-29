@@ -85,7 +85,7 @@
 			</ob-hdg-medium>
 		</div>
 
-		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 12;">
+		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
 			<h4>Navigation</h4>
 			<p>FWD Speed: <span id="speed-text">0.00</span> knots.<br>
 				Resistance: <span id="resist-text">0.00</span> kN.<br></p>
@@ -100,7 +100,11 @@
 
 			<h4>Engine</h4>
 			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
+				Cons. Total: <span id="constotal-text">0.00</span> g.<br>
 				Cont. Rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
+
+			<h4>Checkpoints</h4>
+			<p>Remaining: <span id="checkpoint-text">3</span>.<br></p>
 		</div>
 	</div>
 
@@ -108,7 +112,7 @@
 		body {
 			background-color: var(--container-background-color);
 			margin: 0;
-			font-family: Arial, Helvetica, sans-serif;
+			font-family: "Open Sans", sans-serif;
 		}
 
 		/* Add a black background color to the top navigation */
@@ -495,7 +499,7 @@
 		var ship, shipGLTF, shipState, propellers, wave, hullRes, propellerInteraction, fuelCons;
 		var manoeuvring, manoeuvringMovement, viewer, grid;
 		var controls, modelStyle, remainCheck, totalFuel;
-		var headInd, speedText, resistText, angleText, rotationText, consumptionText, posXText, posYText, mcrText;
+		var headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
 		var clock, time, checkPoint, camMode;
 		var canvas, c, orbitController, lineChart, lineChart2;
 
@@ -754,9 +758,11 @@
 			angleText = document.getElementById("angle-text");
 			rotationText = document.getElementById("rotation-text");
 			consumptionText = document.getElementById("consumption-text");
+			constotalText = document.getElementById("constotal-text");
 			posXText = document.getElementById("posx-text");
 			posYText = document.getElementById("posy-text");
 			mcrText = document.getElementById("mcr-text");
+			checkText = document.getElementById("checkpoint-text");
 
 			// Object.assign( container.style, {
 			// 	position: "absolute",
@@ -1183,8 +1189,6 @@
 
 			//GUI setup
 			viewer = {
-				totalFuel: "0",
-				checkPoint: "3",
 				viewLoc: false,
 				viewCons: false
 			};
@@ -1193,12 +1197,6 @@
 			gui.domElement.style.top = "28px";
 			gui.domElement.style.right = "12%";
 			controls = gui.addFolder("View Style");
-			controls
-				.add(viewer, 'totalFuel')
-				.name("Cons. Fuel (g)").listen();
-			controls
-				.add(viewer, "checkPoint")
-				.name("Remain").listen();
 			controls
 				.add(viewer, "viewLoc")
 				.onChange(function (newValue) {
@@ -1308,8 +1306,8 @@
 
 				consumptionText.innerText = (rotationStates.cons).toFixed(1);
 				mcrText.innerText = (100 * manoeuvringMovement.states.load).toFixed(1);
-				totalFuel += manoeuvringMovement.dt * rotationStates.cons / 3.6
-				controls.__controllers[1].object.totalFuel = totalFuel.toFixed()
+				totalFuel += manoeuvringMovement.dt * rotationStates.cons / 3.6;
+				constotalText.innerText = totalFuel.toFixed();
 
 				var clients = grid.FindNearby(position, { w: 0.5, h: 0.5 });
 				for (let item of clients) {
@@ -1328,7 +1326,7 @@
 					d3.selectAll("#" + NAME).style("fill", "red");
 
 					remainCheck -= 1;
-					controls.__controllers[1].object.checkPoint = remainCheck;
+					checkText.innerText = remainCheck;
 
 					grid.RemoveClient(item);
 
