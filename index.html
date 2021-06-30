@@ -80,22 +80,22 @@
 	</div>
 
 	<div id="3D_pane"
-		style="position: absolute; height: calc(100% - 56px); top:28px; bottom:28px; left: 0%; width: 85%">
+		style="position: absolute; height: calc(100% - 60px); top:30px; bottom:28px; left: 0%; width: 83%">
 	</div>
 
 	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
-	<div id="indicator_pane" style="position: absolute; bottom: 0%; height: 100%; right: 0%; width: 15%; overflow: scroll">
+	<div id="indicator_pane" style="position: absolute; bottom: 0%; height: 100%; right: 0%; width: 17%; overflow: scroll">
 
-		<div style="position: relative; top: 0%; height: 30%; padding: 8px">
+		<div style="position: relative; top: 0%; height: 30%; padding: 9%">
 			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
 				style="position: relative; top: 50%; transform: translateY(-50%)">
 			</ob-hdg-medium>
 		</div>
-		<div style="position: relative; top: 0%; height: 20%; padding: 8px">
+		<div style="position: relative; top: 0%; height: 20%; padding: 9%">
 			<ob-speedometer-medium id="speedometer" value="5">
 			</ob-speedometer-medium>
 		</div>
-		<div style="position: relative; top: 0%; height: 25%; padding: 8px">
+		<div style="position: relative; top: 0%; height: 25%; padding: 9%">
 			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60"
 				targetAngle="88" value="40">
 			</ob-azimuth-medium>
@@ -137,13 +137,14 @@
 		/* Add a black background color to the top navigation */
 		.topnav,
 		.navbar {
+			overflow: hidden;
 			color: black;
 			z-index: 10;
-			overflow: hidden;
 		}
 
 		.topnav {
 			background-color: white;
+			position: relative;
 			color: black;
 			box-shadow: 0px 1px 1px rgb(184, 181, 181);
 		}
@@ -153,7 +154,7 @@
 			background-color: rgb(247, 247, 247);
 			position: fixed;
 			bottom: 0;
-			width: 85%;
+			width: 83%;
 			box-shadow: 0px -1px 1px rgb(184, 181, 181);
 		}
 
@@ -258,7 +259,7 @@
 		#question-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(13% + 16px);
+			right: calc(17% + 16px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -276,7 +277,7 @@
 		#info {
 			position: absolute;
 			color: #011C40;
-			top: 50px;
+			top: 40px;
 			width: 100%;
 			padding: 10px;
 			box-sizing: border-box;
@@ -1267,8 +1268,8 @@
 			};
 			gui = new dat.GUI();
 			gui.domElement.style.position = "absolute";
-			gui.domElement.style.top = "58px";
-			gui.domElement.style.right = "15%";
+			gui.domElement.style.top = "30px";
+			gui.domElement.style.right = "17%";
 			controls = gui.addFolder("View Style");
 			controls
 				.add(viewer, "viewLoc")
