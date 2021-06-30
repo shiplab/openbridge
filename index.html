@@ -52,9 +52,8 @@
 
 <body>
 	<div class="topnav">
-		<a class="active" href="javascript:openNav()" href=""><img width="12px" height="12px" src="icons/menu.svg"
-				alt="Menu" /></a>
-		<a href="">Ship simulator</a>
+		<a id="menu-btn" href="javascript:openNav()" href="" alt="Menu">&#9776;</a>
+		<a>Ship simulator</a>
 		<!-- <div class="topnav-right">
       <a href=""><img width="12px" height="12px" src = "icons/dimming.svg" alt="Dimming"/></a>
     </div> -->
@@ -62,17 +61,36 @@
 
 	<div id="sideMenu" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="#">About the demo</a>
+
+		<div>
+			<h4 style="text-align: right;">About the demo</h4>
+			<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br>
+			Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student
+			Ship
+			Design <br>
+			Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank" rel="noopener">Henrique
+				M. Gaspar</a>
+			<br>
+			CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a>
+			<br>
+			Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
+				rel="noopener">Trondheim municipality</a>
+			<br>
+			View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank" rel="noopener">GitHub</a>
+			<br>
+			View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
+				target="_blank" rel="noopener">ObservableHQ</a>
+		</div>
+
 		<a href="#">Logo</a>
 	</div>
 
 	<div class="navbar" id="viewPane">
 		<a href="javascript:void(0);" class="view active"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Orbital</a>
+		<a href="javascript:void(0);" class="view" style="width: 20%">Fixed</a>
 		<a href="javascript:void(0);" class="view"
-			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Fixed</a>
-		<a href="javascript:void(0);" class="view"
-			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Third-person</a>
+			style="width: 20%; border-right: thin solid rgb(184, 181, 181); border-left: thin solid rgb(184, 181, 181)">Third-person</a>
 		<a href="javascript:void(0);" class="view"
 			style="width: 20%; border-right: thin solid rgb(184, 181, 181)">Bridge 1</a>
 		<a href="javascript:void(0);" class="view"
@@ -83,8 +101,8 @@
 		style="position: absolute; height: calc(100% - 60px); top:30px; bottom:28px; left: 0%; width: 83%">
 	</div>
 
-	<!-- It would be nice to migrate the grid system below to Bootstrap or Material Components -->
-	<div id="indicator_pane" style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 17%; overflow: scroll">
+	<div id="indicator_pane"
+		style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 17%; overflow: scroll">
 
 		<div style="position: relative; top: 0%; height: 30%; padding: 9%">
 			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
@@ -105,9 +123,6 @@
 			<h4>Navigation</h4>
 			<p>FWD Speed: <span id="speed-text">0.00</span> knots.<br>
 				Resistance: <span id="resist-text">0.00</span> kN.<br></p>
-
-
-
 
 			<h4>Position Coord.</h4>
 			<p>X: <span id="posx-text">0.00</span> m.<br>
@@ -170,7 +185,7 @@
 		}
 
 		/* Change the color of links on hover */
-		.topnav a:hover,
+		#menu-btn:hover,
 		.navbar a:hover {
 			background-color: #ddd;
 			color: black;
@@ -271,31 +286,6 @@
 
 			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
 		}
-
-		/* ******* Signature template ******* */
-
-		#info {
-			position: absolute;
-			color: #011C40;
-			top: 40px;
-			width: 100%;
-			padding: 10px;
-			box-sizing: border-box;
-			text-align: center;
-			-moz-user-select: none;
-			-webkit-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			pointer-events: none;
-			z-index: 1;
-		}
-
-		#info a {
-			color: #a60d0d;
-			pointer-events: auto;
-		}
-
-		/* ******* ******* ******* */
 
 		#notes {
 			position: fixed;
@@ -493,28 +483,6 @@
 
 		/* End Style required for D3.js */
 	</style>
-
-	<div id="info">
-		<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br />
-		Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student
-		Ship
-		Design
-		<br>
-		Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank" rel="noopener">Henrique
-			M.
-			Gaspar</a>
-		<br>
-		CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a>
-		<br>
-		Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
-			rel="noopener">Trondheim municipality</a>
-		<br>
-		View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank" rel="noopener">GitHub</a>
-		<br>
-		View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
-			target="_blank" rel="noopener">ObservableHQ</a>
-	</div>
-	</a>
 
 	<!-- This is the loader wraper, unncoment this to see the loading page -->
 	<div id="loader-wrapper">
