@@ -63,27 +63,30 @@
 
 	<div id="sideMenu" class="sidemenu">
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-		<div style="padding: 5%;">
+		<div style="padding: 2.5%;">
 			<p>About the demo</p>
-			<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br>
-			Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc. Student
-			Ship
-			Design <br>
-			Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank" rel="noopener">Henrique
-				M. Gaspar</a>
-			<br>
-			CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a>
-			<br>
-			Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
-				rel="noopener">Trondheim municipality</a>
-			<br>
-			View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank" rel="noopener">GitHub</a>
-			<br>
-			View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
-				target="_blank" rel="noopener">ObservableHQ</a>
+			<p style="font-size: 9px; margin-left: 2.5%;">
+				<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br>
+				Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc.
+				Student Ship Design <br>
+				Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank"
+					rel="noopener">Henrique M. Gaspar</a><br>
+				CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a><br>
+				Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
+					rel="noopener">Trondheim municipality</a><br>
+				View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank"
+					rel="noopener">GitHub</a><br>
+				View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
+					target="_blank" rel="noopener">ObservableHQ</a>
+			</p>
 		</div>
-		<a href="http://www.shiplab.hials.org/" target="_blank">logo shiplab</a><br>
-		<a href="http://www.openbridge.no/" target="_blank">logo openbridge</a>
+		<hr class="solid">
+		<div style="text-align: center;">
+			<a href="http://www.shiplab.hials.org/" target="_blank"><img width="220px"
+					src="icons/shiplab_logo.png"></a>
+			<p><img style="text-align: center;" src="icons/plus_sign.svg"></p>
+			<a href="http://www.openbridge.no/" target="_blank"><img width="220px" src="icons/openbridge_logo.svg"></a>
+		</div>
 	</div>
 
 	<div class="navbar" id="viewPane">
@@ -123,7 +126,7 @@
 		<div id="rotlabel" style="position: relative; left: 16%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">Rotation: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;" id="rotation-text">0</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">RPM</span>
 		</div>
 
-		<hr width="80%" style ="margin-top: 18px; "">
+		<hr width="80%" class ="solid">
 
 		<div style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333;position: absolute; left: 35%; ">Navigation</div>
 
@@ -246,7 +249,7 @@
 		}
 
 		.sidemenu {
-			height: 50%;
+			height: 320px;
 			width: 0;
 			position: fixed;
 			z-index: 1;
@@ -287,6 +290,16 @@
 			.sidemenu a {
 				font-size: 18px;
 			}
+		}
+
+		hr.solid {
+			border: none;
+			border-top: 1px solid rgb(207, 207, 207);
+		}
+
+		a {
+			color: #0080FF;
+			text-decoration: none;
 		}
 
 		table {
