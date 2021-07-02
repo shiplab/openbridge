@@ -63,29 +63,29 @@
 
 	<div id="sideMenu" class="sidemenu">
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-		<div style="padding: 2.5%;">
-			<p>About the demo</p>
-			<p id="about-meta" style="font-size: 9px; margin-left: 2.5%;">
-				<a href="http://vesseljs.org/" target="_blank" rel="noopener">Vessel.js</a> Trondheim Map<br>
-				Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a> - Msc.
-				Student Ship Design <br>
-				Supervisor: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank"
-					rel="noopener">Henrique M. Gaspar</a><br>
-				CAD Models: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a><br>
-				Terrain Models: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
+		<div style="margin-left: 13px; margin-bottom: 15px;">
+			<p style="font-size: 12">&#128712; About the demo</p>
+			<p id="about-meta" style="font-size: 9px; margin-left: 6px;">
+				Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a><br>
+				Supervisors: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank"
+					rel="noopener">Henrique M. Gaspar</a> and <a href="https://www.ntnu.edu/employees/icaro.a.fonseca"
+					target="_blank" rel="noopener">Ícaro A. Fonseca</a><br>
+				User interface: <a href="https://medium.com/ocean-industries-concept-lab" target="_blank"
+					rel="noopener">Ocean Industries Concept Lab</a><br>
+				Gunnerus model: <a href="https://www.ntnu.edu/ihb" target="_blank" rel="noopener">IHB NTNU</a><br>
+				Terrain model: <a href="https://kart.trondheim.kommune.no/3d_bymodell/" target="_blank"
 					rel="noopener">Trondheim municipality</a><br>
-				View source code: <a href="https://github.com/shiplab/openbridge/" target="_blank"
+				Source code: <a href="https://github.com/shiplab/openbridge/" target="_blank"
 					rel="noopener">GitHub</a><br>
-				View mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
+				Mathematical model: <a href="https://observablehq.com/@ferrari212/simulation-model-a-brief-method"
 					target="_blank" rel="noopener">ObservableHQ</a>
 			</p>
 		</div>
 		<hr class="solid">
-		<div style="text-align: center;">
-			<a href="http://www.shiplab.hials.org/" target="_blank"><img width="220px"
-					src="icons/shiplab_logo.png"></a>
+		<div style="text-align: center; padding: 10px">
+			<a href="http://www.shiplab.hials.org/" target="_blank"><img width="210px" src="icons/shiplab_logo.png"></a>
 			<p><img style="text-align: center;" src="icons/plus_sign.svg"></p>
-			<a href="http://www.openbridge.no/" target="_blank"><img width="220px" src="icons/openbridge_logo.svg"></a>
+			<a href="http://www.openbridge.no/" target="_blank"><img width="210px" src="icons/openbridge_logo.svg"></a>
 		</div>
 	</div>
 
@@ -109,74 +109,108 @@
 		style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 19%; overflow: scroll; box-shadow: 0px 0px 2px rgb(184, 181, 181);">
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 20%; font-size: 11;"></div>
 
-		<div style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; position: absolute; left: 35%;">Propulsion</div>
+		<div
+			style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; position: absolute; left: 35%;">
+			Propulsion</div>
 
 		<div style="position: relative; top: 10px; padding: 9%;">
 			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60"
 				targetAngle="88" value="40">
 			</ob-azimuth-medium>
-			
 		</div>
 
-		<div id="powerlabel" style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">Power: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;" id="mcr-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">%</span>
+		<div id="powerlabel"
+			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
+			Power: <span
+				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
+				id="mcr-text">0.00</span><span
+				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">%</span>
 		</div>
-		<div id="anglelabel" style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">Angle: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;" id="angle-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">&deg;</span>
+		<div id="anglelabel"
+			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
+			Angle: <span
+				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
+				id="angle-text">0.00</span><span
+				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">&deg;</span>
 		</div>
 
-		<div id="rotlabel" style="position: relative; left: 16%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">Rotation: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;" id="rotation-text">0</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">RPM</span>
+		<div id="rotlabel"
+			style="position: relative; left: 16%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
+			Rotation: <span
+				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
+				id="rotation-text">0</span><span
+				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">RPM</span>
 		</div>
 
-		<hr width="80%" class ="solid">
+		<hr width="80%" class="solid">
 
-		<div style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333;position: absolute; left: 35%; ">Navigation</div>
+		<div
+			style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333;position: absolute; left: 35%; ">
+			Navigation</div>
 
 		<div style="width: 100%; overflow: hidden;">
-			<div style="width: 50%; float: left;"> 		
+			<div style="width: 50%; float: left;">
 				<div style="height:20%">
-				<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
-					style="position: relative; top: 50%; transform: translateY(-50%)">
-				</ob-hdg-medium>
+					<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
+						style="position: relative; top: 50%; transform: translateY(-50%)">
+					</ob-hdg-medium>
+				</div>
+
+				<div id="powerlabel"
+					style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+					HDG <span
+						style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;"
+						id="hdg-text">0.00</span><span
+						style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">°</span>
+				</div>
 			</div>
-		
-			<div id="powerlabel" style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">HDG <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;" id="hdg-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">°</span>
-			</div>
-		</div>
-			<div style="margin-left: 50%;"> 
-			
+			<div style="margin-left: 50%;">
+
 				<div style="height: 20%;">
-					<ob-speedometer-medium id="speedometer" value="5" style="position: relative; top: 50%; transform: translateY(-50%)">
+					<ob-speedometer-medium id="speedometer" value="5"
+						style="position: relative; top: 50%; transform: translateY(-50%)">
 					</ob-speedometer-medium>
 				</div>
-				<div id="speedlabel" style=" font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">Speed <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;" id="speed-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;"> knots</span>
+				<div id="speedlabel"
+					style=" font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+					Speed <span
+						style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;"
+						id="speed-text">0.00</span><span
+						style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">
+						knots</span>
 				</div>
-			
 			</div>
-	   </div>
-
-
-
-
-
-
-		<div id="xloclabel" style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">x: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px;color: #0080FF;" id="posx-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
-		</div>
-		<div id="yloclabel" style="position: relative; left: 30%; Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">y: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; color: #0080FF;" id="posy-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
 		</div>
 
-
+		<div id="xloclabel"
+			style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
+			x: <span
+				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px;color: #0080FF;"
+				id="posx-text">0.00</span><span
+				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+		</div>
+		<div id="yloclabel"
+			style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
+			y: <span
+				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; color: #0080FF;"
+				id="posy-text">0.00</span><span
+				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+		</div>
 
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
-			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">OTHER</h4>
+			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">OTHERS</h4>
 
-				<p>Resistance: <span id="resist-text">0.00</span> kN.<br></p>
+			<p>Resistance: <span id="resist-text">0.00</span> kN.<br></p>
 			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
 				Cons. Total: <span id="constotal-text">0.00</span> g.<br>
 				Cont. Rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
 
-			
-		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
-			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">CHECKPOINTS</h4>
-			<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
+
+			<div id="panel-number"
+				style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
+				<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">CHECKPOINTS</h4>
+				<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
+			</div>
 		</div>
 	</div>
 
@@ -207,7 +241,7 @@
 			background-color: rgb(247, 247, 247);
 			position: fixed;
 			bottom: 0;
-			width: 83%;
+			width: 81%;
 			box-shadow: 0px 0px 2px rgb(184, 181, 181);
 		}
 
@@ -245,7 +279,7 @@
 		}
 
 		.sidemenu {
-			height: 320px;
+			height: 325px;
 			width: 0;
 			position: fixed;
 			z-index: 1;
@@ -321,10 +355,26 @@
 			background-color: #000;
 		}
 
+		#chart-button {
+			position: fixed;
+			bottom: 54px;
+			right: calc(19% + 96px);
+
+			padding: 12px;
+			border-radius: 50%;
+			margin-bottom: 0px;
+
+			background-color: #fff;
+			opacity: 0.9;
+			z-index: 110;
+
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+		}
+
 		#question-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(17% + 16px);
+			right: calc(19% + 16px);
 
 			padding: 12px;
 			border-radius: 50%;
@@ -410,6 +460,10 @@
 		/* ***************************************************************************************/
 
 		@media all and (max-width: 992px) and (pointer: coarse) {
+			#chart-button {
+				display: none;
+			}
+
 			#question-button {
 				display: none;
 			}
@@ -542,8 +596,12 @@
 		</div>
 	</div>
 
+	<a id="chart-button">
+		<img src="icons\show_chart.svg">
+	</a>
+
 	<a id="question-button">
-		<img src="icons\help-black-24dp.svg" />
+		<img src="icons\help.svg">
 	</a>
 
 	<div id="graphic1">
@@ -1283,7 +1341,7 @@
 			gui = new dat.GUI();
 			gui.domElement.style.position = "absolute";
 			gui.domElement.style.top = "30px";
-			gui.domElement.style.right = "17%";
+			gui.domElement.style.right = "19%";
 			controls = gui.addFolder("View Style");
 			controls
 				.add(viewer, "viewLoc")
