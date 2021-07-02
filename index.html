@@ -111,7 +111,7 @@
 
 		<div style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; position: absolute; left: 35%;">Propulsion</div>
 
-		<div style="position: relative; top: 10px; height: 25%; padding: 9%;">
+		<div style="position: relative; top: 10px; padding: 9%;">
 			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60"
 				targetAngle="88" value="40">
 			</ob-azimuth-medium>
@@ -138,7 +138,7 @@
 				</ob-hdg-medium>
 			</div>
 		
-			<div id="powerlabel" style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px; color: rgba(0, 0, 0, 0.5);">HDG <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 48px;  color: #0080FF;" id="hdg-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px;   color: #0080FF;">°</span>
+			<div id="powerlabel" style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">HDG <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;" id="hdg-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">°</span>
 			</div>
 		</div>
 			<div style="margin-left: 50%;"> 
@@ -147,7 +147,7 @@
 					<ob-speedometer-medium id="speedometer" value="5" style="position: relative; top: 50%; transform: translateY(-50%)">
 					</ob-speedometer-medium>
 				</div>
-				<div id="speedlabel" style=" font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px; color: rgba(0, 0, 0, 0.5);">Speed <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 48px;  color: #0080FF;" id="speed-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px;   color: #0080FF;">knots</span>
+				<div id="speedlabel" style=" font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">Speed <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;" id="speed-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;"> knots</span>
 				</div>
 			
 			</div>
@@ -158,29 +158,25 @@
 
 
 
-		<div id="powerlabel" style=" left: 0px; top: calc(50% - 42px/2 + 3px);	font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">x: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 48px;  color: #0080FF;" id="posx-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+		<div id="xloclabel" style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">x: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px;color: #0080FF;" id="posx-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
 		</div>
-		<div id="powerlabel" style=" left: 0px;	font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">y: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 48px;  color: #0080FF;" id="posy-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+		<div id="yloclabel" style="position: relative; left: 30%; Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">y: <span style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; color: #0080FF;" id="posy-text">0.00</span><span style ="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
 		</div>
+
 
 
 		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
-			<h4>Navigation</h4>
+			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">OTHER</h4>
 
-				Resistance: <span id="resist-text">0.00</span> kN.<br></p>
-
-
-			<h4>Propeller</h4>
-			<p>Angle: <span id="angle-text">0.00</span>&deg;.<br>
-				Rotation: <span id="rotation-text">0.00</span> RPM.<br></p>
-
-			<h4>Engine</h4>
+				<p>Resistance: <span id="resist-text">0.00</span> kN.<br></p>
 			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
 				Cons. Total: <span id="constotal-text">0.00</span> g.<br>
 				Cont. Rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
 
-			<h4>Checkpoints</h4>
-			<p>Remaining: <span id="checkpoint-text">3</span>.<br></p>
+			
+		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
+			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">CHECKPOINTS</h4>
+			<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
 		</div>
 	</div>
 
