@@ -64,9 +64,10 @@
 	<div id="sideMenu" class="sidemenu">
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 		<div style="margin-left: 13px; margin-bottom: 15px;">
-			<p style="font-size: 12">ⓘ About the demo</p>
-			<p style="font-size: 9px; margin-left: 6px;">Ship simulator. <br>Reach the 3 chechkpoints.<br>Use AWSD to control the ship.</p>
+			<p style="font-size: 13">ⓘ About the demo</p>
+			<p style="font-size: 11px; margin-left: 6px;">Ship simulator. <br>Reach the 3 chechkpoints.<br>Use AWSD to control the ship.</p>
 			<p id="about-meta" style="font-size: 9px; margin-left: 6px;">
+				<a href="http://vesseljs.org">Vessel.js</a> library.<br>
 				Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a><br>
 				Supervisors: <a href="https://www.ntnu.edu/employees/henrique.gaspar" target="_blank"
 					rel="noopener">Henrique M. Gaspar</a> and <a href="https://www.ntnu.edu/employees/icaro.a.fonseca"
@@ -86,7 +87,7 @@
 		<div style="text-align: center; padding: 10px">
 			<a href="http://www.shiplab.hials.org/" target="_blank"><img width="210px" src="icons/shiplab_logo.png"></a>
 			<p><img style="text-align: center;" src="icons/plus_sign.svg"></p>
-			<a href="http://www.openbridge.no/" target="_blank"><img width="210px" src="icons/openbridge_logo.svg"></a>
+			<a href="http://www.openbridge.no/" target="_blank"><img width="200px" src="icons/openbridge_logo.svg"></a>
 		</div>
 	</div>
 
@@ -122,25 +123,24 @@
 
 		<div id="powerlabel"
 			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
-			Power: <span
+			Power  <span
 				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
 				id="mcr-text">0.00</span><span
 				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">%</span>
 		</div>
 		<div id="anglelabel"
 			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
-			Angle: <span
+			Angle  <span
 				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
 				id="angle-text">0.00</span><span
 				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">&deg;</span>
 		</div>
 
 		<div id="rotlabel"
-			style="position: relative; left: 16%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
-			Rotation: <span
+			style="position: relative; left: 25%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
+			RPM <span
 				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
-				id="rotation-text">0</span><span
-				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">RPM</span>
+				id="rotation-text">0</span>
 		</div>
 
 		<hr width="80%" class="solid">
@@ -280,7 +280,7 @@
 		}
 
 		.sidemenu {
-			height: 385px;
+			height: 400px;
 			width: 0;
 			position: fixed;
 			z-index: 1;
