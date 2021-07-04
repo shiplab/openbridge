@@ -65,7 +65,8 @@
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 		<div style="margin-left: 13px; margin-bottom: 15px;">
 			<p style="font-size: 13">ⓘ About the demo</p>
-			<p style="font-size: 11px; margin-left: 6px;">Ship simulator. <br>Reach the 3 chechkpoints.<br>Use AWSD to control the ship.</p>
+			<p style="font-size: 11px; margin-left: 6px;">Reach the 3 checkpoints.<br>Use WASD to
+				control the ship.</p>
 			<p id="about-meta" style="font-size: 9px; margin-left: 6px;">
 				<a href="http://vesseljs.org">Vessel.js</a> library.<br>
 				Author: <a href="https://shiptodata.com/" target="_blank" rel="noopener">Felipe Ferrari</a><br>
@@ -109,109 +110,91 @@
 
 	<div id="indicator_pane"
 		style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 19%; overflow: scroll; box-shadow: 0px 0px 2px rgb(184, 181, 181);">
-		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 20%; font-size: 11;"></div>
 
 		<div
-			style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; position: absolute; left: 35%;">
+			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
 			Propulsion</div>
 
-		<div style="position: relative; top: 10px; padding: 9%;">
+		<div style="padding-left: 9%; padding-right: 9%;">
 			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60"
 				targetAngle="88" value="40">
 			</ob-azimuth-medium>
 		</div>
 
 		<div id="powerlabel"
-			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
-			Power  <span
-				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
-				id="mcr-text">0.00</span><span
-				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">%</span>
+			style="font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5); text-align: center;">
+			Power <span style="font-weight: 600; font-size: 24px; line-height: 32px; color: #0080FF;"
+				id="mcr-text">0.00</span><span style="font-weight: normal; font-size: 18px; color: #0080FF;"> %</span>
 		</div>
 		<div id="anglelabel"
-			style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
-			Angle  <span
-				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
-				id="angle-text">0.00</span><span
-				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px;   color: #0080FF;">&deg;</span>
+			style="font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5); text-align: center;">
+			Angle <span style="font-weight: 600; font-size: 24px; line-height: 32px; color: #0080FF;"
+				id="angle-text">0.00</span><span style="font-weight: normal; font-size: 18px; color: #0080FF;">
+				&deg;</span>
 		</div>
 
-		<div id="rotlabel"
-			style="position: relative; left: 25%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5);">
-			RPM <span
-				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; line-height: 32px;  color: #0080FF;"
+		<div id="rotlabel" style="font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5); text-align: center;">
+			RPM <span style="font-weight: 600; font-size: 24px; line-height: 32px; color: #0080FF;"
 				id="rotation-text">0</span>
 		</div>
 
 		<hr width="80%" class="solid">
 
 		<div
-			style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333;position: absolute; left: 35%; ">
+			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
 			Navigation</div>
 
-		<div style="width: 100%; overflow: hidden;">
-			<div style="width: 50%; float: left;">
-				<div style="height:20%">
-					<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup=""
-						style="position: relative; top: 50%; transform: translateY(-50%)">
-					</ob-hdg-medium>
-				</div>
+		<div>
+			<div style="width: 50%; float: left; padding-left: 3.5%; padding-right: 1.5%;">
+				<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup="" style="position: relative;">
+				</ob-hdg-medium>
 
 				<div id="powerlabel"
-					style="position: relative; left: 20%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-					HDG <span
-						style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;"
-						id="hdg-text">0.00</span><span
-						style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">°</span>
+					style="position: relative; left: 20%; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+					HDG <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+						id="hdg-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
+						°</span>
 				</div>
 			</div>
-			<div style="margin-left: 50%;">
+			<div style="margin-left: 50%; padding-left: 1.5%; padding-right: 3.5%;">
+				<ob-speedometer-medium id="speedometer" value="5" style="position: relative;"></ob-speedometer-medium>
 
-				<div style="height: 20%;">
-					<ob-speedometer-medium id="speedometer" value="5"
-						style="position: relative; top: 50%; transform: translateY(-50%)">
-					</ob-speedometer-medium>
-				</div>
-				<div id="speedlabel"
-					style=" font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-					Speed <span
-						style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 18px; line-height: 48px;  color: #0080FF;"
-						id="speed-text">0.00</span><span
-						style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 12px;   color: #0080FF;">
+				<div id="speedlabel" style="font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+					Speed <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+						id="speed-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
 						knots</span>
 				</div>
 			</div>
 		</div>
 
 		<div id="xloclabel"
-			style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
-			x: <span
-				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px;color: #0080FF;"
-				id="posx-text">0.00</span><span
-				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+			style="font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5); text-align: center;">
+			x <span style="font-weight: 600; font-size: 24px;color: #0080FF;" id="posx-text">0.00</span><span
+				style="font-weight: normal; font-size: 18px; color: #0080FF;"> m</span>
 		</div>
 		<div id="yloclabel"
-			style="position: relative; left: 30%; font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 20px; color: rgba(0, 0, 0, 0.5);">
-			y: <span
-				style="font-family: Open Sans; font-style: normal; font-weight: 600; font-size: 24px; color: #0080FF;"
-				id="posy-text">0.00</span><span
-				style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 24px;   color: #0080FF;">°</span>
+			style="font-weight: normal; font-size: 18px; color: rgba(0, 0, 0, 0.5); text-align: center;">
+			y <span style="font-weight: 600; font-size: 24px; color: #0080FF;" id="posy-text">0.00</span><span
+				style="font-weight: normal; font-size: 18px; color: #0080FF;"> m</span>
 		</div>
 
-		<div id="panel-number" style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
-			<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">OTHERS</h4>
+		<hr width="80%" class="solid">
 
-			<p>Resistance: <span id="resist-text">0.00</span> kN.<br></p>
-			<p>Cons. Rate: <span id="consumption-text">0.00</span> kg/h.<br>
-				Cons. Total: <span id="constotal-text">0.00</span> g.<br>
-				Cont. Rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
+		<div style="font-size: 11; padding-left: 9%; padding-right: 9%;">
+			<div
+			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
+			Others</div>
+			<p>Resistance: <span id="resist-text">0.00</span> kN.</p>
+			<p>Consumption rate: <span id="consumption-text">0.00</span> kg/h.<br>
+				Consumed total: <span id="constotal-text">0.00</span> g.<br>
+				Current rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
 
+			<hr width="80%" class="solid">
 
-			<div id="panel-number"
-				style="position: relative; top: 0%; width: 90%; left: 10%; height: 70%; font-size: 11;">
-				<h4 style="font-family: Open Sans; font-style: normal; font-weight: 600; ">CHECKPOINTS</h4>
-				<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
-			</div>
+			<div
+			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
+			Checkpoints</div>
+			<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
 		</div>
 	</div>
 
@@ -280,7 +263,7 @@
 		}
 
 		.sidemenu {
-			height: 400px;
+			height: 380px;
 			width: 0;
 			position: fixed;
 			z-index: 1;
@@ -359,22 +342,6 @@
 		#chart-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(19% + 96px);
-
-			padding: 12px;
-			border-radius: 50%;
-			margin-bottom: 0px;
-
-			background-color: #fff;
-			opacity: 0.9;
-			z-index: 110;
-
-			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-		}
-
-		#question-button {
-			position: fixed;
-			bottom: 54px;
 			right: calc(19% + 16px);
 
 			padding: 12px;
@@ -386,22 +353,6 @@
 			z-index: 110;
 
 			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-		}
-
-		#notes {
-			position: fixed;
-			bottom: 4px;
-			z-index: 100;
-			right: 206px;
-			font-family: "Cutive Mono", monospace;
-
-			background-color: #fff;
-			opacity: 0.9;
-			visibility: hidden;
-
-			padding-right: 40px;
-			padding-top: 5px;
-			padding-bottom: 5px;
 		}
 
 		#graphic1 {
@@ -426,10 +377,6 @@
 
 			background-color: #fff;
 			opacity: 0.7;
-		}
-
-		h4 {
-			text-align: center
 		}
 
 		/* ***************************************************************************************/
@@ -464,10 +411,6 @@
 			#chart-button {
 				display: none;
 			}
-
-			#question-button {
-				display: none;
-			}
 		}
 
 		.close {
@@ -500,15 +443,6 @@
 
 		.close:after {
 			transform: rotate(-45deg);
-		}
-
-		.unselectable {
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
 		}
 
 		/* LOADER */
@@ -601,10 +535,6 @@
 		<img src="icons\show_chart.svg">
 	</a>
 
-	<a id="question-button">
-		<img src="icons\help.svg">
-	</a>
-
 	<div id="graphic1">
 		<div class="container">
 			<div id="lineChart-position"></div>
@@ -615,16 +545,6 @@
 		<div class="container">
 			<div id="lineChart-eff"></div>
 		</div>
-	</div>
-
-	<div id="notes" class="ctrl-key-explanation unselectable">
-		<ul>
-			<li>
-				Use <span class="ctrl-key">w</span>, <span class="ctrl-key">a</span>, <span class="ctrl-key">s</span>,
-				<span class="ctrl-key">d</span> buttom to control the <br />
-				rotation and angle of the propeller;
-			</li>
-		</ul>
 	</div>
 
 	<script>
@@ -698,21 +618,6 @@
 
 		; (function main() {
 
-			var hideElement = () => {
-
-				document.getElementById("notes").style.visibility = "hidden";
-
-			};
-
-			var showElement = () => {
-
-				document.getElementById("notes").style.visibility = "visible";
-
-			};
-
-			document.getElementById("question-button").addEventListener("mouseenter", showElement);
-			document.getElementById("question-button").addEventListener("mouseleave", hideElement);
-
 			class FixedCamera {
 
 				constructor(params) {
@@ -746,8 +651,6 @@
 
 					this._control.enableRotate = true;
 					document.getElementById(this._idCanvas).style.cursor = "grab";
-					// this._camera.lookAt( this._params.position.x + 2, 2, - this._params.position.y );
-					// this._control.target.set( this._params.position.x + 2, 2, - this._params.position.y );
 
 				}
 
