@@ -275,12 +275,12 @@ THREE.DRACOLoader.prototype = Object.assign( Object.create( THREE.Loader.prototy
 
 		if ( useJS ) {
 
-			librariesPending.push( this._loadLibrary( 'draco_decoder.js', 'text' ) );
+			librariesPending.push( this._loadLibrary( 'libs/draco_decoder.js', 'text' ) );
 
 		} else {
 
-			librariesPending.push( this._loadLibrary( 'draco_wasm_wrapper.js', 'text' ) );
-			librariesPending.push( this._loadLibrary( 'draco_decoder.wasm', 'arraybuffer' ) );
+			librariesPending.push( this._loadLibrary( 'libs/draco_wasm_wrapper.js', 'text' ) );
+			librariesPending.push( this._loadLibrary( 'libs/draco_decoder.wasm', 'arraybuffer' ) );
 
 		}
 

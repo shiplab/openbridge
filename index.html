@@ -27,7 +27,6 @@
 	<script src="3D_engine/OrbitControls_v2.js"></script>
 	<script src="3D_engine/dat.gui.min.js"></script>
 	<script src="3D_engine/skybox_from_examples_r118.js"></script>
-	<script src="libs/browse_files_Elias_Hasle.js"></script>
 
 	<script src="3D_engine/Patch_interpolation.js"></script>
 	<script src="3D_engine/renderRayCaster.js"></script>
@@ -811,7 +810,7 @@
 			// End of the request chain
 
 			// import binary glTF file
-			var boatPath = "specs/GLTF_files/Gunnerus.glb";
+			var boatPath = "3D_engine/models/Gunnerus.glb";
 			var loaderGLTF = new THREE.GLTFLoader();
 			loaderGLTF.load(boatPath, gltf => {
 
@@ -904,11 +903,11 @@
 			THREE.DRACOLoader.setDecoderConfig({ type: 'js' });
 			loaderGLTF.setDRACOLoader(new THREE.DRACOLoader());
 
-			var terrainPath = "specs/GLTF_files/terrain.glb";
-			loaderGLTF.load(terrainPath, gltf => {
+			var dracoTerrainPath = "3D_engine/models/dracoTerrain.glb";
+			loaderGLTF.load(dracoTerrainPath, gltf => {
 
 				let terrainGLTF = gltf.scene;
-				terrainGLTF.name = "terrainGLTF";
+				terrainGLTF.name = "terrainDraco";
 
 				if (terrainGLTF.material) {
 
@@ -961,42 +960,7 @@
 
 			});
 
-			var dracoTerrainPath = "specs/GLTF_files/dracoTerrain.glb";
-			loaderGLTF.load(dracoTerrainPath, gltf => {
-
-				let terrainGLTF = gltf.scene;
-				terrainGLTF.name = "terrainDraco";
-
-				if (terrainGLTF.material) {
-
-					terrainGLTF.material.side = THREE.DoubleSide;
-
-				}
-
-				terrainGLTF.traverse(o => {
-
-					// Note: In the further would be ideal to find a way to insert the texture
-					if (o.isMesh) {
-
-						let e = scene.getObjectByName(o.name);
-						let material = new THREE.MeshBasicMaterial({ color: 0xbababa });
-
-						o.material.color.setHSL(0.0, 1.0, 0.99);
-
-					}
-
-				});
-
-				Object.assign(terrainGLTF.position, displaceObject);
-				zUpCont.add(terrainGLTF);
-
-			}, null, e => {
-
-				console.error(e);
-
-			});
-
-			var cityPath = "specs/GLTF_files/city.glb";
+			var cityPath = "3D_engine/models/city.glb";
 			loaderGLTF.load(cityPath, gltf => {
 
 				let cityGLTF = gltf.scene;
