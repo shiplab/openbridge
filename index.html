@@ -105,17 +105,17 @@
 	</div>
 
 	<div id="3D_pane"
-		style="position: absolute; height: calc(100% - 60px); top:30px; bottom:28px; left: 0%; width: 81%">
+		style="position: absolute; height: calc(100% - 60px); top:30px; bottom:28px; left: 0%; width: 79%">
 	</div>
 
 	<div id="indicator_pane"
-		style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 19%; overflow: scroll; box-shadow: 0px 0px 2px rgb(184, 181, 181);">
+		style="position: absolute; bottom: 0%; height: calc(100% - 30px); right: 0%; width: 21%; overflow: scroll; box-shadow: 0px 0px 2px rgb(184, 181, 181);">
 
 		<div
 			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
 			Propulsion</div>
 
-		<div style="padding-left: 9%; padding-right: 9%;">
+		<div style="padding-left: 15%; padding-right: 15%;">
 			<ob-azimuth-medium id="azimuth" angle="42" showSetPointAngle="" showSetPointValue="" target="60"
 				targetAngle="88" value="40">
 			</ob-azimuth-medium>
@@ -144,22 +144,21 @@
 			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
 			Navigation</div>
 
-		<div style="width: 50%; float: left; padding-left: 3.5%; padding-right: 1.5%;">
+		<div style="width: 50%; float: left; padding-left: 7%; padding-right: 2.5%;">
 			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup="" style="position: relative;">
 			</ob-hdg-medium>
 
-			<div id="powerlabel"
-				style="position: relative; left: 20%; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-				HDG <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+			<div style="text-align: center; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+				HDG <span style="font-weight: 600; font-size: 18px; line-height: 38px; color: #0080FF;"
 					id="hdg-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
 					°</span>
 			</div>
 		</div>
-		<div style="margin-left: 50%; padding-left: 1.5%; padding-right: 3.5%;">
+		<div style="margin-left: 50%; padding-left: 2.5%; padding-right: 7%;">
 			<ob-speedometer-medium id="speedometer" value="5" style="position: relative;"></ob-speedometer-medium>
 
-			<div id="speedlabel" style="font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-				Speed <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+			<div style="text-align: center; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+				Speed <span style="font-weight: 600; font-size: 18px; line-height: 38px; color: #0080FF;"
 					id="speed-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
 					kn</span>
 			</div>
@@ -197,7 +196,8 @@
 
 	<div id="chartModal" class="modal">
 		<div class="modal-content" style="width: 570px; height: 305px">
-			<div style="font-size: 12px; padding-top: 2px; padding-left: 10px;">Simulation charts<span class="close" style="padding: 0px 7px;">&times;</span></div>
+			<div style="font-size: 12px; padding-top: 2px; padding-left: 10px;">Simulation charts<span class="close"
+					style="padding: 0px 7px;">&times;</span></div>
 			<hr class="solid">
 			<div id="graphic1" style="float: left; padding-left: 10px;">
 			</div>
@@ -245,7 +245,7 @@
 			background-color: rgb(247, 247, 247);
 			position: fixed;
 			bottom: 0;
-			width: 81%;
+			width: 79%;
 			box-shadow: 0px 0px 2px rgb(184, 181, 181);
 		}
 
@@ -340,7 +340,7 @@
 		#chart-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(19% + 24px);
+			right: calc(21% + 24px);
 
 			padding: 12px;
 			border-radius: 50%;
