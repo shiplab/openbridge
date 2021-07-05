@@ -378,7 +378,7 @@ class ConsGraph extends LineChartClass {
 				return -5
 			})
 			.style("text-anchor", "start")
-			.text("Maxmun Power");
+			.text("Maximum Power");
 
 		this.svg.append("g")
 			.attr("transform", "translate( " + ( xf(minRot) - 5 ) +" , " + (yf(0)  - 2) + " ) rotate(-90)")

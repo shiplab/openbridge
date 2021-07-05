@@ -144,26 +144,24 @@
 			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
 			Navigation</div>
 
-		<div>
-			<div style="width: 50%; float: left; padding-left: 3.5%; padding-right: 1.5%;">
-				<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup="" style="position: relative;">
-				</ob-hdg-medium>
+		<div style="width: 50%; float: left; padding-left: 3.5%; padding-right: 1.5%;">
+			<ob-hdg-medium id="headInd" heading="60" courseoverground="55" northup="" style="position: relative;">
+			</ob-hdg-medium>
 
-				<div id="powerlabel"
-					style="position: relative; left: 20%; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-					HDG <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
-						id="hdg-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
-						°</span>
-				</div>
+			<div id="powerlabel"
+				style="position: relative; left: 20%; font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+				HDG <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+					id="hdg-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
+					°</span>
 			</div>
-			<div style="margin-left: 50%; padding-left: 1.5%; padding-right: 3.5%;">
-				<ob-speedometer-medium id="speedometer" value="5" style="position: relative;"></ob-speedometer-medium>
+		</div>
+		<div style="margin-left: 50%; padding-left: 1.5%; padding-right: 3.5%;">
+			<ob-speedometer-medium id="speedometer" value="5" style="position: relative;"></ob-speedometer-medium>
 
-				<div id="speedlabel" style="font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
-					Speed <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
-						id="speed-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
-						knots</span>
-				</div>
+			<div id="speedlabel" style="font-weight: normal; font-size: 12px; color: rgba(0, 0, 0, 0.5);">
+				Speed <span style="font-weight: 600; font-size: 18px; line-height: 48px; color: #0080FF;"
+					id="speed-text">0.00</span><span style="font-weight: normal; font-size: 12px; color: #0080FF;">
+					kn</span>
 			</div>
 		</div>
 
@@ -182,21 +180,43 @@
 
 		<div style="font-size: 11; padding-left: 9%; padding-right: 9%;">
 			<div
-			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
-			Others</div>
+				style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
+				Others</div>
 			<p>Resistance: <span id="resist-text">0.00</span> kN.</p>
 			<p>Consumption rate: <span id="consumption-text">0.00</span> kg/h.<br>
-				Consumed total: <span id="constotal-text">0.00</span> g.<br>
-				Current rate: <span id="mcr-text">0.00</span> % of MCR.<br></p>
+				Consumed total: <span id="constotal-text">0.00</span> g.<br></p>
 
 			<hr width="80%" class="solid">
 
 			<div
-			style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
-			Checkpoints</div>
+				style="font-weight: 600; font-size: 12px; line-height: 24px; letter-spacing: 1.125px; text-transform: uppercase; color: #333333; text-align: center;">
+				Checkpoints</div>
 			<p>Remaining: <span id="checkpoint-text">3</span> out of 3.<br></p>
 		</div>
 	</div>
+
+	<div id="chartModal" class="modal">
+		<div class="modal-content" style="width: 570px; height: 305px">
+			<div style="font-size: 12px; padding-top: 2px; padding-left: 10px;">Simulation charts<span class="close" style="padding: 0px 7px;">&times;</span></div>
+			<hr class="solid">
+			<div id="graphic1" style="float: left; padding-left: 10px;">
+			</div>
+			<div id="graphic2" style="float: right;">
+			</div>
+		</div>
+	</div>
+
+	<!-- This is the loader wraper, unncoment this to see the loading page -->
+	<div id="loader-wrapper">
+		<div class="loader loader-white loader-1"></div>
+		<div>
+			<h1 style="font-style: italic; font-weight: normal">Loading...</h1>
+		</div>
+	</div>
+
+	<a id="chart-button">
+		<img src="icons\show_chart.svg">
+	</a>
 
 	<style>
 		body {
@@ -235,7 +255,7 @@
 			float: left;
 			color: black;
 			text-align: center;
-			padding: 7px 7px;
+			padding: 7px;
 			text-decoration: none;
 			font-size: 12px;
 		}
@@ -296,7 +316,7 @@
 			margin-left: 50px;
 		} */
 
-		@media screen and (max-height: 450px) {
+		/* @media screen and (max-height: 450px) {
 			.sidemenu {
 				padding-top: 15px;
 			}
@@ -304,7 +324,7 @@
 			.sidemenu a {
 				font-size: 18px;
 			}
-		}
+		} */
 
 		hr.solid {
 			border: none;
@@ -317,132 +337,73 @@
 			font-weight: bold;
 		}
 
-		table {
-			margin-top: 15px;
-			margin-bottom: 10px;
-			border-radius: 10%;
-		}
-
-		table,
-		td {
-			color: #fff;
-			background-color: #000;
-		}
-
-		td {
-			border-radius: 20%;
-			border: 1px solid #fff;
-			width: 100px;
-		}
-
-		tr {
-			background-color: #000;
-		}
-
 		#chart-button {
 			position: fixed;
 			bottom: 54px;
-			right: calc(19% + 16px);
+			right: calc(19% + 24px);
 
 			padding: 12px;
 			border-radius: 50%;
 			margin-bottom: 0px;
 
-			background-color: #fff;
+			background-color: white;
 			opacity: 0.9;
-			z-index: 110;
+			z-index: 9;
 
 			box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
 		}
 
-		#graphic1 {
-			border-radius: 5%;
-			position: fixed;
-			top: 225px;
-			z-index: 100;
-			right: 16px;
-			font-family: "Cutive Mono", monospace;
-
-			background-color: #fff;
-			opacity: 0.7;
+		#chart-button:hover {
+			background-color: #ddd;
+			color: black;
+			cursor: pointer;
 		}
 
+		#graphic1,
 		#graphic2 {
-			border-radius: 5%;
-			position: fixed;
-			top: 225px;
-			z-index: 100;
-			left: 16px;
 			font-family: 'Cutive Mono', monospace;
-
-			background-color: #fff;
-			opacity: 0.7;
+			background-color: white;
 		}
 
-		/* ***************************************************************************************/
-		/*   Title: Sketchbook - Control Box
-		*    Author: @swift502
-		*    Date: 2020
-		*    Code version: 0.4
-		*    Availability: https://github.com/swift502/Sketchbook
-		*
-		****************************************************************************************/
-		.ctrl-key {
-			text-shadow: none;
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 10;
+			padding-top: 100px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		/* Modal Content */
+		.modal-content {
+			background-color: white;
+			margin: auto;
+			border: 1px solid #888;
+		}
+
+		/* The Close Button */
+		.close {
+			color: black;
+			float: right;
+			font-size: 12px;
 			font-weight: bold;
-			display: inline-block;
-			font-family: "Cutive Mono", monospace;
-			padding: 2px 5px;
-			margin-right: 2px;
-			min-width: 10px;
-			text-align: center;
-			margin-left: 2px;
-			background: #eff0f2;
-			box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 2px 3px #000;
-			color: #111;
-			border-radius: 2px;
-			font-size: 14px;
 		}
 
-		/* END */
-		/* ***************************************************************************************/
+		.close:hover,
+		.close:focus {
+			background-color: #ddd;
+			color: black;
+			cursor: pointer;
+		}
 
 		@media all and (max-width: 992px) and (pointer: coarse) {
 			#chart-button {
 				display: none;
 			}
-		}
-
-		.close {
-			position: absolute;
-			right: 10px;
-			top: 5px;
-			width: 16px;
-			height: 22px;
-			opacity: 0.6;
-		}
-
-		.close:hover {
-			opacity: 1;
-			cursor: pointer;
-		}
-
-		.close:before,
-		.close:after {
-			position: absolute;
-			left: 10px;
-			content: " ";
-			height: 10px;
-			width: 2px;
-			background-color: #fff;
-		}
-
-		.close:before {
-			transform: rotate(45deg);
-		}
-
-		.close:after {
-			transform: rotate(-45deg);
 		}
 
 		/* LOADER */
@@ -523,30 +484,6 @@
 		/* End Style required for D3.js */
 	</style>
 
-	<!-- This is the loader wraper, unncoment this to see the loading page -->
-	<div id="loader-wrapper">
-		<div class="loader loader-white loader-1"></div>
-		<div>
-			<h1 style="font-style: italic; font-weight: normal">Loading...</h1>
-		</div>
-	</div>
-
-	<a id="chart-button">
-		<img src="icons\show_chart.svg">
-	</a>
-
-	<div id="graphic1">
-		<div class="container">
-			<div id="lineChart-position"></div>
-		</div>
-	</div>
-
-	<div id="graphic2">
-		<div class="container">
-			<div id="lineChart-eff"></div>
-		</div>
-	</div>
-
 	<script>
 		"use strict"
 
@@ -595,6 +532,7 @@
 
 					manoeuvringMovement.states.rudderAngle += 0.08;
 					angleText.innerText = (manoeuvringMovement.states.rudderAngle % 360).toFixed(1);
+
 				} else {
 
 					manoeuvringMovement.states.rudderAngle -= 0.08;
@@ -616,7 +554,27 @@
 			}
 		}
 
-		; (function main() {
+		var chartModal = document.getElementById("chartModal");
+		var modalOpen = document.getElementById("chart-button");
+		var closeModal = document.getElementsByClassName("close")[0];
+
+		modalOpen.onclick = function () {
+			chartModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		closeModal.onclick = function () {
+			chartModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == chartModal) {
+				chartModal.style.display = "none";
+			}
+		};
+
+		(function main() {
 
 			class FixedCamera {
 
@@ -1003,7 +961,7 @@
 									ykey: "y",
 									ylabel: "Position Y (m)"
 								};
-								lineChart = new PositionGraph("lineChart1", keyResults.map(e => e.position), labelObj1, "lineChart-position", { width: 275, height: 275 });
+								lineChart = new PositionGraph("lineChart1", keyResults.map(e => e.position), labelObj1, "graphic1", { width: 275, height: 275 });
 								keyResults.forEach(e => lineChart.drawLabel(e.position.x, e.position.y, e.name));
 								var labelObj2 = {
 									xkey: "x",
@@ -1012,7 +970,7 @@
 									ylabel: "MCR (%)"
 								}
 
-								lineChart2 = new ConsGraph("lineChart2", keyResults.map(e => e.position), labelObj2, "lineChart-eff", { width: 275, height: 275 });
+								lineChart2 = new ConsGraph("lineChart2", keyResults.map(e => e.position), labelObj2, "graphic2", { width: 275, height: 275 });
 								lineChart2.drawLineGeneric(0, 0, manoeuvringMovement.manoeuvring);
 
 							});
@@ -1234,33 +1192,32 @@
 
 			});
 
-			document.getElementById("graphic1").style.visibility = "hidden"
-			document.getElementById("graphic2").style.visibility = "hidden"
+			//document.getElementById("graphic1").style.visibility = "hidden"
+			//document.getElementById("graphic2").style.visibility = "hidden"
 
 			//GUI setup
-			viewer = {
-				viewLoc: false,
-				viewCons: false
-			};
-			gui = new dat.GUI();
-			gui.domElement.style.position = "absolute";
-			gui.domElement.style.top = "30px";
-			gui.domElement.style.right = "19%";
-			controls = gui.addFolder("View Style");
-			controls
-				.add(viewer, "viewLoc")
-				.onChange(function (newValue) {
-					document.getElementById("graphic1").style.visibility = newValue ? "visible" : "hidden"
-				})
-				.name("View Loc.").listen();
-			controls
-				.add(viewer, "viewCons")
-				.onChange(function (newValue) {
-					document.getElementById("graphic2").style.visibility = newValue ? "visible" : "hidden"
-				})
-				.name("View Power").listen();
-			controls.open();
-
+			/* 			viewer = {
+							viewLoc: false,
+							viewCons: false
+						};
+						gui = new dat.GUI();
+						gui.domElement.style.position = "absolute";
+						gui.domElement.style.top = "30px";
+						gui.domElement.style.right = "19%";
+						controls = gui.addFolder("View Style");
+						controls
+							.add(viewer, "viewLoc")
+							.onChange(function (newValue) {
+								document.getElementById("graphic1").style.visibility = newValue ? "visible" : "hidden"
+							})
+							.name("View Loc.").listen();
+						controls
+							.add(viewer, "viewCons")
+							.onChange(function (newValue) {
+								document.getElementById("graphic2").style.visibility = newValue ? "visible" : "hidden"
+							})
+							.name("View Power").listen();
+						controls.open(); */
 			// End GUI setup
 
 			clock = new THREE.Clock();
