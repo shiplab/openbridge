@@ -920,7 +920,7 @@
             };
 
             var terrainLoader = new THREE.TerrainLoader();
-            terrainLoader.load('../3D_engine/models/alesund/alesund.bin', function (data) {
+            terrainLoader.load('3D_engine/models/alesund/alesund.bin', function (data) {
                 var geometry = new THREE.PlaneGeometry(60, 60, 199, 199);
 
                 for (var i = 0, l = geometry.vertices.length; i < l; i++) {
@@ -928,7 +928,7 @@
                 }
 
                 var material = new THREE.MeshPhongMaterial({
-                    map: THREE.ImageUtils.loadTexture('../3D_engine/models/alesund/alesund_terrain.jpeg')
+                    map: THREE.ImageUtils.loadTexture('3D_engine/models/alesund/alesund_terrain.jpeg')
                 });
 
                 var plane = new THREE.Mesh(geometry, material);
