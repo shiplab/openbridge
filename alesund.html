@@ -494,7 +494,7 @@
         var controls, modelStyle, remainCheck, totalFuel;
         var azimuth, speedometer, headInd, speedText, resistText, angleText, rotationText, consumptionText, constotalText, checkText, posXText, posYText, mcrText;
         var clock, time, checkPoint, camMode;
-        var canvas, c, orbitController, lineChart, lineChart2, plane;
+        var canvas, c, orbitController, lineChart, lineChart2;
 
         function toggleMenu() {
             var btn = document.getElementById("menubtn");
@@ -931,7 +931,7 @@
                     map: THREE.ImageUtils.loadTexture('../3D_engine/models/alesund/alesund_terrain.jpeg')
                 });
 
-                plane = new THREE.Mesh(geometry, material);
+                var plane = new THREE.Mesh(geometry, material);
 
                 plane.scale.x = 50000 / 60;
                 plane.scale.y = 50000 / 60;
